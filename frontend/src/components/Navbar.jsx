@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "../assets/main-logo.png";
 import { Link } from "react-router";
 import { MenuIcon, XIcon } from "lucide-react";
+import { SignInButton, SignUpButton } from "@clerk/clerk-react";
 
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
@@ -40,12 +41,14 @@ function Navbar() {
         </Link>
       </div>
       <div className="flex space-x-6 max-sm:hidden font-bold">
-        <button className="bg-blue-500/80 max-sm:p-2 sm:p-4 rounded-full cursor-pointer  hover:bg-secondary w-24 h-15">
-          Log In
-        </button>
-        <button className="bg-blue-500/80 max-sm:p-2 sm:p-4 rounded-full cursor-pointer w-24 hover:bg-secondary transition duration-300">
-          Sign Up
-        </button>
+        <SignInButton
+          afterSignInUrl="/user-info"
+          className="bg-blue-500/80 max-sm:p-2 sm:p-4 rounded-full cursor-pointer  hover:bg-secondary w-24 h-15"
+        />
+        <SignUpButton
+          afterSignUpUrl="/user-info"
+          className="bg-blue-500/80 max-sm:p-2 sm:p-4 rounded-full cursor-pointer  hover:bg-secondary w-24 h-15"
+        />
       </div>
 
       <MenuIcon

@@ -1,4 +1,5 @@
 import React from "react";
+import { SignInButton, SignUpButton } from "@clerk/clerk-react";
 
 function HeroSection() {
   return (
@@ -10,12 +11,14 @@ function HeroSection() {
         Find your music twins based on your vibes
       </div>
       <div className="text-white gap-8 flex font-bold sm:absolute sm:left-48 sm:top-85">
-        <button className="bg-blue-500 p-4 rounded-full cursor-pointer hover:bg-secondary">
-          Sign In
-        </button>
-        <button className="bg-red-500 p-4 rounded-full cursor-pointer hover:bg-secondary">
-          Sign Up
-        </button>
+        <SignInButton
+          afterSignInUrl="/user-info"
+          className="bg-blue-500 p-4 rounded-full cursor-pointer hover:bg-secondary"
+        />
+        <SignUpButton
+          afterSignUpUrl="/user-info"
+          className="bg-red-500 p-4 rounded-full cursor-pointer hover:bg-secondary"
+        />
       </div>
     </div>
   );

@@ -56,11 +56,8 @@ router.get("/callback", async (req, res) => {
     );
 
     const { access_token, refresh_token, expires_in } = tokenResponse.data;
-    res.json({
-      access_token,
-      refresh_token,
-      expires_in,
-    });
+
+    res.redirect("http://localhost:5173/login");
   } catch (error) {
     console.error("Spotify token error:", error.message);
     res.status(500).send("Token exchange failed");
